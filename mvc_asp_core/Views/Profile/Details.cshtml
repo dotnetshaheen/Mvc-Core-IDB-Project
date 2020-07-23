@@ -1,0 +1,63 @@
+﻿@model mvc_asp_core.Models.UserIdentityModel.IdentityModel
+@{
+    ViewData["Title"] = "Details";
+}
+
+
+<div class="row" style="margin-top:10px;">
+
+
+
+
+</div>
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+
+        <table class="table table-responsive">
+            <caption><h2>Profile Information</h2></caption>
+            <tr>
+                <td colspan="2">
+                    @Html.ActionLink("Edit", "Edit", "Profile", new { id = Model.Id }, new { @class = "btn btn-default" })
+                </td>
+
+            </tr>
+            <tr>
+                <td>Photo</td>
+
+                @if (Model.Photo != null)
+                {
+                    <td>
+                        <img src="@Url.Content(Model.Photo)" height="50" width="75" />
+                    </td>
+                }
+                else
+                {
+                    <td>Images is not Found</td>
+                }
+
+            </tr>
+            <tr>
+                <td>First Name</td>
+                <td>@Model.FirstName</td>
+            </tr>
+            <tr>
+                <td>Last Name</td>
+                <td>@Model.LastName</td>
+            </tr>
+            <tr>
+                <td>Date Of Birth</td>
+                <td>@Model.DateOfBirth</td>
+            </tr>
+
+
+        </table>
+    </div>
+    <div class="col-md-4"></div>
+</div>
+
+
+
+
+
+

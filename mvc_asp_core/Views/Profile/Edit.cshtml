@@ -1,0 +1,80 @@
+﻿@model mvc_asp_core.Models.UserIdentityModel.IdentityModel
+@{
+    ViewData["Title"] = "Edit";
+}
+
+
+
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+        <form asp-action="Edit" asp-controller="Profile" enctype="multipart/form-data">
+            <input asp-for="SecurityStamp" hidden />
+            <label asp-for="Id" hidden></label>
+
+            <table class="table table-responsive">
+                <caption><h2 class="text-center">Edit Profile</h2></caption>
+                <tr>
+                    <td>User Name</td>
+                    <td>
+                        <input type="text" asp-for="UserName" class="form-control" />
+                    </td>
+                </tr>
+
+
+                <tr>
+                    <td>First Name</td>
+                    <td>
+                        <input type="text" asp-for="FirstName" class="form-control" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>Last Name</td>
+                    <td>
+                        <input type="text" asp-for="LastName" class="form-control" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>Date Of Birth</td>
+                    <td>
+                        <input type="text" asp-for="DateOfBirth" id="datePicker" class="form-control" />
+                    </td>
+                </tr>
+                <tr>
+                    <td>Photo</td>
+
+                    <td>
+                        <input type="file" asp-for="imgFile" />
+                    </td>
+
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <input type="submit" value="Update" class="btn-block btn-default" />
+                    </td>
+
+                </tr>
+
+            </table>
+        </form>
+    </div>
+    <div class="col-md-4"></div>
+</div>
+
+@section Scripts{
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <link href="~/lib/jqueryui/jquery-ui.css" rel="stylesheet" />
+    <script src="~/lib/jqueryui/jquery-ui.js"></script>
+    <script>
+        $().ready(function () {
+            $("#datePicker").datepicker({
+      
+                 changeMonth: true,
+            changeYear: true,
+            showButtonPanel: true,
+    
+            });
+        })
+    </script>
+}
+

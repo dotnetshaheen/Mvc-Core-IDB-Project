@@ -1,0 +1,45 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <UserSecretsId>aspnet-mvc_asp_core-D0016A91-B8AC-47D3-A35E-ED73DD645AB0</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="wwwroot\css\style.css" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.9" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Areas\Identity\Services\" />
+    <Folder Include="wwwroot\images\employee\" />
+    <Folder Include="wwwroot\images\patient\" />
+    <Folder Include="wwwroot\images\ProfilePhoto\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\Theme\fonts\fontawesome-webfont.svg" />
+    <None Include="wwwroot\Theme\fonts\fontawesome-webfont.woff2" />
+    <None Include="wwwroot\Theme\fonts\glyphicons-halflings-regular.svg" />
+    <None Include="wwwroot\Theme\fonts\glyphicons-halflings-regular.woff2" />
+    <None Include="wwwroot\Theme\images\gallery\default-skin.svg" />
+    <None Include="wwwroot\Theme\js\bootstrap.min.js" />
+    <None Include="wwwroot\Theme\js\custom.js" />
+    <None Include="wwwroot\Theme\js\hovers.js" />
+    <None Include="wwwroot\Theme\js\jquery.counterup.min.js" />
+    <None Include="wwwroot\Theme\js\jquery.js" />
+    <None Include="wwwroot\Theme\js\modernizr.custom.79639.js" />
+    <None Include="wwwroot\Theme\js\photoswipe-gallery.js" />
+    <None Include="wwwroot\Theme\js\photoswipe-ui-default.min.js" />
+    <None Include="wwwroot\Theme\js\photoswipe.min.js" />
+    <None Include="wwwroot\Theme\js\slick.min.js" />
+    <None Include="wwwroot\Theme\js\snap.svg-min.js" />
+    <None Include="wwwroot\Theme\js\waypoints.min.js" />
+  </ItemGroup>
+
+</Project>

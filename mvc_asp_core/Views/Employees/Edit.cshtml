@@ -1,0 +1,85 @@
+﻿@model mvc_asp_core.Models.Employee
+
+@{
+    ViewData["Title"] = "Edit";
+}
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+
+        <h2>Edit</h2>
+
+        <h4>Employee</h4>
+        <hr />
+        <div class="row">
+            <div class="col-md-4">
+
+                <form asp-action="Edit" enctype="multipart/form-data">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="Id" />
+                    <input type="hidden" asp-for="Photo" />
+                    <div class="form-group">
+                        <label asp-for="Name" class="control-label"></label>
+                        <input asp-for="Name" class="form-control" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Dob" class="control-label"></label>
+                        <input asp-for="Dob" type="text" id="date-picker" class="form-control" />
+                        <span asp-validation-for="Dob" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Age" class="control-label"></label>
+                        <input asp-for="Age" class="form-control" />
+                        <span asp-validation-for="Age" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="JoiningDate" class="control-label"></label>
+                        <input asp-for="JoiningDate" type="text" id="date-picker2" class="form-control" />
+                        <span asp-validation-for="JoiningDate" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="DeptID" class="control-label"></label>
+                        <select asp-for="DeptID" class="form-control" asp-items="ViewBag.DeptID"></select>
+                        <span asp-validation-for="DeptID" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="EmCategoryID" class="control-label"></label>
+                        <select asp-for="EmCategoryID" class="form-control" asp-items="ViewBag.EmCategoryID"></select>
+                        <span asp-validation-for="EmCategoryID" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="DesignationId" class="control-label"></label>
+                        <select asp-for="DesignationId" class="form-control" asp-items="ViewBag.DesignationId"></select>
+                        <span asp-validation-for="DesignationId" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Photo" class="control-label"></label>
+                        <input asp-for="imgFile" type="file" class="form-control" />
+                        <span asp-validation-for="Photo" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <input type="submit" value="Save" class="btn btn-default" />
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div>
+            <a asp-action="Index">Back to List</a>
+        </div>
+    </div>
+    <div class="col-md-2"></div>
+</div>
+
+@section Scripts{
+    <script src="~/jquery/jquery.js"></script>
+    <script src="~/lib/jqueryui/jquery-ui.js"></script>
+    <link href="~/lib/jqueryui/jquery-ui.css" rel="stylesheet" />
+    <script>
+        $().ready(function () {
+            $("#date-picker").datepicker();
+            $("#date-picker2").datepicker();
+        })
+    </script>
+}

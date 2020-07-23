@@ -1,0 +1,67 @@
+﻿@model mvc_asp_core.Models.UserIdentityModel.IdentityModel
+@{
+    ViewData["Title"] = "LoggedUserProfile";
+}
+
+
+<div class="row">
+
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+        @if (TempData["Result"] != null)
+        {
+            <div class="alert alert-warning alert-dismissable">
+                <span><strong>Message!</strong> @TempData["Result"]</span>
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+            </div>
+        }
+    </div>
+    <div class="col-md-3"></div>
+</div>
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+
+        <table class="table table-responsive">
+            <caption> <span class="h4"><strong>Profile Information</strong></span> <span> @Html.ActionLink("Edit", "Edit", "Profile", new { id = Model.Id }, new { @class = "badge" })</span></caption>
+            @*<tr>
+                <td colspan="2">
+                   
+                </td>
+
+            </tr>*@
+            <tr>
+               
+
+                @if (Model.Photo != null)
+                {
+                    <td colspan="2">
+                        <img src="@Url.Content(Model.Photo)" height="120" width="120" class="center-block" style="border-radius:100%; border:5px solid #ffd133"/>
+                    </td>
+                }
+                else
+                {
+                    <td>Images is not Found</td>
+                }
+
+            </tr>
+            <tr>
+                <td>First Name</td>
+                <td>@Model.FirstName</td>
+            </tr>
+            <tr>
+                <td>Last Name</td>
+                <td>@Model.LastName</td>
+            </tr>
+            <tr>
+                <td>Date Of Birth</td>
+                <td>@Model.DateOfBirth</td>
+            </tr>
+
+
+        </table>
+    </div>
+    <div class="col-md-4"></div>
+</div>
+
+

@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Microsoft.AspNetCore.Identity.IdentityRole>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>All Roles in Application DB Context</h2>
+
+
+
+@if (ViewBag.Result != null)
+{
+    <span class="btn btn-danger">@ViewBag.Result</span>
+}
+
+@if (ViewData["Result"] != null)
+{
+    <span>@ViewData["Result"]</span>
+}
+    <span>@TempData["Success"]</span>
+
+    <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+            <div class="row" style="margin-bottom:10px;">
+                <a asp-controller="RoleManage" asp-action="Create" class="btn btn-info">Create New</a>
+            </div>
+            <dl>
+                @foreach (var item in Model)
+                {
+                    <dt class="bg-info" style="padding:5px;">ID :</dt>
+                    <dd class="bg-primary" style="padding:5px;">@item.Id</dd>
+
+                    <dt class="bg-info" style="padding:5px;">Name :</dt>
+                    <dd class="bg-primary" style="padding:5px;">@item.Name</dd>
+                    <i> &#9986;----------------------------------------------------</i>
+                }
+            </dl>
+        </div>
+        <div class="col-md-3"></div>
+ 
+    </div>
+

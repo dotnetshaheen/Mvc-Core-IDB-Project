@@ -1,0 +1,52 @@
+﻿
+@{
+    ViewData["Title"] = "AssignRole";
+}
+<div class="row" style="margin-top:10px;">
+    @if (ViewBag.Result != null)
+    {
+        <div class="alert alert-warning alert-dismissable">
+            <span><strong>Warning!</strong> @ViewBag.Result</span>
+            <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+        </div>
+    }
+</div>
+<div class="row">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+        <h2>Assign Role</h2>
+        <form asp-action="AssignRole" asp-controller="RoleManage">
+
+
+            <div class="form-group row">
+                <label class="control-label"> User List </label>
+                @if (ViewBag.user != null)
+                {
+                    <select asp-items="@ViewBag.user" class="form-control" name="userlst">
+                        <option selected>Select User</option>
+                    </select>
+                }
+            </div>
+
+            <div class="form-group row">
+
+                @if (ViewBag.roles != null)
+                {
+                    @foreach (var item in (SelectList)ViewBag.roles)
+                    {
+                        <label class="checkbox-inline">
+                            <input type="checkbox" name="roles" value="@item.Value" /> @item.Value
+                        </label>
+                    }
+                }
+            </div>
+            <div>
+                <input type="submit" value="Assign Role" />
+            </div>
+        </form>
+
+
+    </div>
+    <div class="col-md-4"></div>
+</div>
+

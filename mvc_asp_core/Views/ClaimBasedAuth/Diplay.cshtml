@@ -1,0 +1,54 @@
+﻿@model mvc_asp_core.ViewModel.ClaimModel.ClaimVM
+@{
+    ViewData["Title"] = "Diplay";
+}
+
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+
+        @if (ViewBag.Result != null)
+        {
+            <div class="alert alert-success alert-dismissable">
+                <span><strong>Warning!</strong> @ViewBag.Result</span>
+                <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+            </div>
+        }
+
+
+        <div class="row">
+            <form method="post" asp-action="Diplay" asp-controller="ClaimBasedAuth">
+                <div class="panel">
+                    <div class="panel-heading">
+                        Assign Claim
+                    </div>
+                    <div class="panel-body">
+                        <div>
+                            @if (ViewBag.user != null)
+                            {
+                                <select asp-items="@ViewBag.user" name="userList" asp-for="@Model.Email" class="form-control">
+                                    <option>Select User</option>
+                                </select>
+                            }
+                        </div>
+                        <div>
+                            @for (int i = 0; i < Model.userClaims.Count; i++)
+                            {
+                                <input asp-for="@Model.userClaims[i].IsSelected" />
+                                <label asp-for="@Model.userClaims[i].IsSelected">
+                                    @Model.userClaims[i].ClaimType
+                                </label>
+                            }
+                        </div>
+                    </div>
+                    <div class="panel-footer">
+                        <input type="submit" value="Add Claim" />
+                    </div>
+                </div>
+            </form>
+        </div>
+
+
+    </div>
+    <div class="col-md-2"></div>
+</div>

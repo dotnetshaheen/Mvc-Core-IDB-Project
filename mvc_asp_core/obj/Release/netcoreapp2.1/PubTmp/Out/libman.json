@@ -1,0 +1,27 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "library": "jqueryui@1.12.1",
+      "destination": "wwwroot/lib/jqueryui/"
+    },
+    {
+      "provider": "unpkg",
+      "library": "bootstrap@4.4.1",
+      "destination": "wwwroot/bootstrap/4"
+    },
+    {
+      "library": "OwlCarousel2@2.3.4",
+      "destination": "wwwroot/OwlCarousel2/"
+    },
+    {
+      "library": "AlertifyJS@1.13.1",
+      "destination": "wwwroot/AlertifyJS/"
+    },
+    {
+      "library": "jquery@3.4.1",
+      "destination": "wwwroot/jquery/"
+    }
+  ]
+}

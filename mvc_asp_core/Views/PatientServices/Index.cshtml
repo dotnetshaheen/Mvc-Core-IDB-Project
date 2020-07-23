@@ -1,0 +1,104 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (TempData["Result"] != null)
+{
+    <div class="alert alert-success">
+        <span> @TempData["Result"]</span>
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+}
+
+
+<div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+        <partial name="Create" />
+    </div>
+    <div class="col-md-2"></div>
+    
+</div>
+
+@section Scripts{
+    <script src="~/jquery/jquery.js"></script>
+    <script src="~/lib/jqueryui/jquery-ui.js"></script>
+    <link href="~/lib/jqueryui/jquery-ui.css" rel="stylesheet" />
+    <script>
+        $().ready(function () {
+            //$("#txtDate").datepicker({
+            //    dateFormat: 'dd/mm/yy',
+            //    changeYear: true,
+            //    changeMonth: true,
+            //    yearRange: '-100:+0',
+            //    showOn:"focus",
+            //    maxDate: 0
+            //});
+
+            var form = $("#formGivenId");
+            var data = new FormData(form[0]);
+
+            $(".add-row").click(function () {
+                //alert("click");
+                var patient = $("#txtPatient").val();
+                var doctor = $("#txtDoctor").val();
+                var service = $("#txtService").val();
+                var date = $("#txtDate").val();
+                var status = $("#txtStatus").val();
+                var rowsIndex = $('table tbody tr').length;
+                data.append("PatientServices[" + rowsIndex + "].PatientId", patient);
+                data.append("PatientServices[" + rowsIndex + "].DoctorID", doctor);
+                data.append("PatientServices[" + rowsIndex + "].ServiceId", service);
+                data.append("PatientServices[" + rowsIndex + "].ServiceDate", date);
+                data.append("PatientServices[" + rowsIndex + "].PaymentStatus", status);
+                var markup = "<tr><td>" + patient + "</td> <td>" + doctor + "</td><td>" + service + "</td><td>" + date + "</td><td>" + status + "</td></tr>";
+
+                $("table tbody").append(markup);
+            })
+
+            $("#btnSave").click(function (e) {
+
+                $.ajax({
+                    type: "POST",
+                    url: "/PatientServices/Create"
+                    , data: data,
+                    contentType: false,
+                    processData: false,
+                    success: function (response) {
+                        alert('Successfully saved')
+                    }
+                });
+
+            });
+        });
+
+
+
+        //$("#btnSave").click(function () {
+        //    var data = new FormData();
+        //    $(".fData").each(function (i, v) {
+        //        data.append($(v).attr("name"), $(v).val());
+        //    });
+        //    $.ajax({
+        //        url: "/PatientServices/Create",
+        //        type: "POST",
+        //        processData: false,
+        //        contentType: false,
+        //        data: data
+        //    }).done(function (d) {
+        //        alert(d.result)
+        //    }).fail(function (er) {
+        //        console.log(er)
+        //    });
+        //});
+
+
+
+
+
+    </script>
+}
