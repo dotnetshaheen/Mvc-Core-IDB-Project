@@ -126,7 +126,7 @@ using mvc_asp_core.Models;
             WriteLiteral("</span>\r\n\r\n    <div class=\"row\">\r\n        <div class=\"col-md-3\"></div>\r\n        <div class=\"col-md-6\">\r\n            <div class=\"row\" style=\"margin-bottom:10px;\">\r\n                ");
             EndContext();
             BeginContext(541, 86, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "173d731636a840239f25b8a82cf132d1", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ca6861ab9ccb41f0af3a14b7706692c3", async() => {
                 BeginContext(613, 10, true);
                 WriteLiteral("Create New");
                 EndContext();

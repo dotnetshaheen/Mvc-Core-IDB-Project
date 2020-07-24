@@ -10,6 +10,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
 using mvc_asp_core.Models.UserIdentityModel;
+using Microsoft.AspNetCore.Http;
+using mvc_asp_core.Models;
+using mvc_asp_core.Data;
 
 namespace mvc_asp_core.Areas.Identity.Pages.Account
 {
@@ -18,11 +21,15 @@ namespace mvc_asp_core.Areas.Identity.Pages.Account
     {
         private readonly SignInManager<IdentityModel> _signInManager;
         private readonly ILogger<LoginModel> _logger;
+        private UserManager<IdentityModel> userManager;
+        private readonly ApplicationDbContext _context;
 
-        public LoginModel(SignInManager<IdentityModel> signInManager, ILogger<LoginModel> logger)
+        public LoginModel(SignInManager<IdentityModel> signInManager, ILogger<LoginModel> logger, UserManager<IdentityModel> user,ApplicationDbContext context)
         {
             _signInManager = signInManager;
             _logger = logger;
+            userManager = user;
+            _context = context;
         }
 
         [BindProperty]
@@ -58,6 +65,12 @@ namespace mvc_asp_core.Areas.Identity.Pages.Account
 
             returnUrl = returnUrl ?? Url.Content("~/");
 
+
+            //var userId = userManager.GetUserId(HttpContext.User);
+
+            //IdentityModel user = await userManager.FindByIdAsync(userId);
+            //HttpContext.Session.SetString("appUser", user.Photo);
+
             // Clear the existing external cookie to ensure a clean login process
             await HttpContext.SignOutAsync(IdentityConstants.ExternalScheme);
 
@@ -78,6 +91,9 @@ namespace mvc_asp_core.Areas.Identity.Pages.Account
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User logged in.");
+                    var user = (from u in _context.Users where u.Email==Input.Email select u).ToList();
+                    HttpContext.Session.SetString("appUser", user[0].Photo);
+
                     return LocalRedirect(returnUrl);
                 }
                 if (result.RequiresTwoFactor)

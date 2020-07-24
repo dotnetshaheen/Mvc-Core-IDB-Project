@@ -96,7 +96,7 @@ using mvc_asp_core.Models;
             WriteLiteral("</div>\r\n<div class=\"row\">\r\n    <div class=\"col-md-4\"></div>\r\n    <div class=\"col-md-4\">\r\n        <h2>Assign Role</h2>\r\n        ");
             EndContext();
             BeginContext(497, 1031, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "fb2b9f32f080459eb138fe11cf106ad4", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d8689fbcdce24884a1a89d1134640133", async() => {
                 BeginContext(555, 114, true);
                 WriteLiteral("\r\n\r\n\r\n            <div class=\"form-group row\">\r\n                <label class=\"control-label\"> User List </label>\r\n");
                 EndContext();
@@ -110,12 +110,12 @@ using mvc_asp_core.Models;
                 WriteLiteral("                    ");
                 EndContext();
                 BeginContext(752, 164, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("select", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "22ec9b17ffaa4242b35fcbf8ebe8099e", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("select", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "63e0bb0a9fb54b618ff2c7b136f3bad8", async() => {
                     BeginContext(822, 26, true);
                     WriteLiteral("\r\n                        ");
                     EndContext();
                     BeginContext(848, 37, false);
-                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "206cde373406437a97a4af22b45df07f", async() => {
+                    __tagHelperExecutionContext = __tagHelperScopeManager.Begin("option", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c1c1c85106c34ba48cd2140c6d94c65d", async() => {
                         BeginContext(865, 11, true);
                         WriteLiteral("Select User");
                         EndContext();

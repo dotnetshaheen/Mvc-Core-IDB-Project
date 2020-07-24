@@ -108,7 +108,7 @@ using mvc_asp_core.Models;
             WriteLiteral("</strong></h5>\r\n                    <span class=\"badge badge-pill\">");
             EndContext();
             BeginContext(900, 81, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "425c3b0fd629433db1a11cf6c3bcdb23", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "e2bce6b6940e4ee996f408b39ae05958", async() => {
                 BeginContext(973, 4, true);
                 WriteLiteral("Edit");
                 EndContext();
@@ -145,7 +145,7 @@ using mvc_asp_core.Models;
             WriteLiteral("</span> |\r\n                    <span class=\"badge\" style=\"background-color:#ee7070;\">");
             EndContext();
             BeginContext(1066, 86, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "28c45bda8f3c44688b1e01a35f3b70eb", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1b962688f15b42148a13b6e750499afc", async() => {
                 BeginContext(1142, 6, true);
                 WriteLiteral("Delete");
                 EndContext();

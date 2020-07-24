@@ -1,13 +1,21 @@
 @using mvc_asp_core.Models.UserIdentityModel
 @using Microsoft.AspNetCore.Identity
+@using Microsoft.AspNetCore.Http;
+@using Microsoft.AspNetCore.Mvc;
 
 @inject SignInManager<IdentityModel> SignInManager
 @inject UserManager<IdentityModel> UserManager
+@{
+    var picture = Context.Session.GetString("appUser");
+}
 
 @if (SignInManager.IsSignedIn(User))
 {
     <form asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })" method="post" id="logoutForm" class="navbar-right">
         <ul class="nav navbar-nav navbar-right">
+            <li>
+                <a><img class="img-center img-responsive img-rounded" src="@Url.Content(picture)" height="25" width="25" /></a>
+            </li>
             <li>
                 <a asp-area="Identity" asp-page="/Account/Manage/Index" title="Manage">Hello @UserManager.GetUserName(User)!</a>
             </li>
@@ -31,7 +39,6 @@
 
 
     <ul class="nav navbar-nav navbar-right">
-       
     </ul>
 }
 else

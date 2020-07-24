@@ -14,7 +14,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using mvc_asp_core.Models.UserIdentityModel;
 using mvc_asp_core.Models;
-
+using Microsoft.AspNetCore.Session;
 namespace mvc_asp_core
 {
     public class Startup
@@ -44,6 +44,9 @@ namespace mvc_asp_core
                 options.UseSqlServer(
                     Configuration.GetConnectionString("ESAD")));
 
+            //========= Session =====================
+            services.AddDistributedMemoryCache();
+            services.AddSession();
             //services.AddDefaultIdentity<IdentityModel>()
             //    .AddRoles<IdentityRole>()
             //    .AddEntityFrameworkStores<ApplicationDbContext>();
@@ -86,7 +89,7 @@ namespace mvc_asp_core
             app.UseCookiePolicy();
 
             app.UseAuthentication();
-
+            app.UseSession();
             app.UseMvc(routes =>
             {
                 routes.MapRoute(

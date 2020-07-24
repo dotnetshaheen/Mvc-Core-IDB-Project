@@ -116,13 +116,13 @@ namespace mvc_asp_core.Controllers
                 if (patient.imgFile != null)
                 {
                     string ext = Path.GetExtension(patient.imgFile.FileName).ToLower();
-                    if (ext == ".jpg" || ext == ".png")
+                    if (ext == ".jpg" || ext == ".png" || ext ==".mp4")
                     {
-                        string fileName = Path.Combine(_Host.WebRootPath, "images\\patient", patient.imgFile.FileName);
+                        string fileName = Path.Combine(_Host.WebRootPath, "images\\patient",patient.imgFile.FileName);
                         using (var fileStream = new FileStream(fileName, FileMode.Create))
                         {
                             patient.imgFile.CopyTo(fileStream);
-                            patient.Photo = "/images/patient/" + patient.imgFile.FileName;
+                            patient.Photo = "\\images\\patient\\" + patient.imgFile.FileName;
                         }
                     }
                 }
@@ -174,7 +174,7 @@ namespace mvc_asp_core.Controllers
                             using (var fileStream = new FileStream(fileName, FileMode.Create))
                             {
                                 patient.imgFile.CopyTo(fileStream);
-                                patient.Photo = "/images/patient/" + patient.imgFile.FileName;
+                                patient.Photo = "\\images\\patient\\" + patient.imgFile.FileName;
                             }
                         }
                     }
@@ -209,6 +209,8 @@ namespace mvc_asp_core.Controllers
 
             var patient = await _context.Patients
                 .FirstOrDefaultAsync(m => m.Id == id);
+
+
             if (patient == null)
             {
                 return NotFound();
@@ -217,12 +219,21 @@ namespace mvc_asp_core.Controllers
             return View(patient);
         }
 
-        
+
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var patient = await _context.Patients.FindAsync(id);
+            //============================ Delete File From wwwroot
+            string webrootpath = _Host.WebRootPath;
+            var filePath = webrootpath + patient.Photo;
+
+            if (System.IO.File.Exists(filePath))
+            {
+                System.IO.File.Delete(filePath);
+            }
+
             _context.Patients.Remove(patient);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));

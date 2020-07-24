@@ -58,34 +58,51 @@
             <tbody>
                 @foreach (var item in Model)
                 {
-                    <tr>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Title)
-                        </td>
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Title)
+                    </td>
 
-                        <td>
-                            @Html.DisplayFor(modelItem => item.LastName)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Dob)
-                        </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LastName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Dob)
+                    </td>
 
-                        @if (item.Photo != null)
+                    @if (item.Photo != null)
+                    {
+
+                        var ext = item.Photo.Split(".");
+
+                        if (ext[1] == "mp4")
+                        {
+                            <td>
+                                <video height="100" controls autoplay controlsList="nodownload">
+                                    <source src="@Url.Content(item.Photo)" type="video/mp4" />
+                                </video>
+                            </td>
+                        }
+                        else
                         {
                             <td>
                                 <img src="@Url.Content(item.Photo)" height="100" width="100" class="img-responsive" />
                             </td>
                         }
-                        else
-                        {
-                            <td>Images Not Found</td>
-                        }
-                        <td>
-                            <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                            <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                            <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-                        </td>
-                    </tr>
+
+
+
+                    }
+                    else
+                    {
+                        <td>Images Not Found</td>
+                    }
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                    </td>
+                </tr>
                 }
             </tbody>
         </table>

@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using mvc_asp_core.Models;
+using mvc_asp_core.Models.UserIdentityModel;
+using Microsoft.AspNetCore.Http;
 
 namespace mvc_asp_core.Controllers
 {

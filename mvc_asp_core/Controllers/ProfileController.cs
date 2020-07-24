@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using mvc_asp_core.Models.UserIdentityModel;
+using Microsoft.AspNetCore.Http;
 
 namespace mvc_asp_core.Controllers
 {
@@ -30,7 +31,9 @@ namespace mvc_asp_core.Controllers
         public async Task<IActionResult> LoggedUserProfile()
         {
             var userId = userManager.GetUserId(HttpContext.User);
-            IdentityModel user = await userManager.FindByIdAsync(userId);            
+            
+            IdentityModel user = await userManager.FindByIdAsync(userId);
+            //HttpContext.Session.SetString("appUser", user.Photo);
             return View(user);
         }
 

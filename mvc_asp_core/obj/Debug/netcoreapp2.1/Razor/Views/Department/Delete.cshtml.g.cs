@@ -91,7 +91,7 @@ using mvc_asp_core.Models;
             WriteLiteral("\r\n<div class=\"row\">\r\n    <div class=\"col-md-2\">\r\n\r\n    </div>\r\n    <div class=\"list-group col-md-8\">\r\n        ");
             EndContext();
             BeginContext(532, 803, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "a2f069a8a612425c8703b2ee6d7a8674", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "5ce4b9adb13d492090253c13f72e11ed", async() => {
                 BeginContext(600, 450, true);
                 WriteLiteral(@"
             <div class=""list-group-item list-group-item-action flex-column align-items-start"" style=""margin-bottom:5px;"">
