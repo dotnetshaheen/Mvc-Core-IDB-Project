@@ -12,4 +12,6 @@ Checked By Syed Zahidul Hasan || Consultant, Show & Tell Consulting Ltd. (IsDB-B
 6. Ajax
 7. Sorting
 8. Searching
-
+9. Delete File From wwwroot Folder
+10. Show Profile Photo in Navigation bar
+11. Use Session variable
